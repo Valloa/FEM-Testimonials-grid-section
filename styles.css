@@ -5,17 +5,17 @@
 }
 
 :root {
-    --purple-50: hsl(260, 100%, 95%);
-    --purple-300: hsl(264, 82%, 80%);
-    --purple-500: hsl(263, 55%, 52%);
+  --purple-50: hsl(260, 100%, 95%);
+  --purple-300: hsl(264, 82%, 80%);
+  --purple-500: hsl(263, 55%, 52%);
 
-    --white: hsl(0, 0%, 100%);
-    --grey-100: hsl(214, 17%, 92%);
-    --grey-200: hsl(0, 0%, 81%);
-    --grey-400: hsl(224, 10%, 45%);
-    --grey-500: hsl(217, 19%, 35%);
-    --dark-blue: hsl(219, 29%, 14%);
-    --black: hsl(0, 0%, 7%);
+  --white: hsl(0, 0%, 100%);
+  --grey-100: hsl(214, 17%, 92%);
+  --grey-200: hsl(0, 0%, 81%);
+  --grey-400: hsl(224, 10%, 45%);
+  --grey-500: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --black: hsl(0, 0%, 7%);
 
   --spacing-1600: 8rem;
   --spacing-700: 3.5rem;
@@ -43,7 +43,7 @@
   font-family: "Barlow Semi Condensed", sans-serif;
   font-weight: var(--fweight-medium);
 
-  background: #F6F5F6;
+  background: #f6f5f6;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -95,17 +95,17 @@ img {
 }
 
 .Text2 {
-    font-size: .8125rem;
+  font-size: 0.8125rem;
   line-height: 1.1;
 }
 
 .Text3 {
-    font-size: .8125rem;
+  font-size: 0.8125rem;
   line-height: 1.4;
 }
 
 .Text4 {
-    font-size: .0,6875rem;
+  font-size: 0.6875rem;
   line-height: 1.1;
 }
 
@@ -116,18 +116,18 @@ main {
 }
 
 h1 {
-    position: absolute;
-    inset-inline-start: 0;
-    inset-block-start: 0;
-    inline-size: 0;
-    block-size: 0;
-    overflow: hidden;
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  inline-size: 0;
+  block-size: 0;
+  overflow: hidden;
 }
 
 .Container {
   display: grid;
   gap: var(--spacing-400);
-    grid-auto-flow: dense;
+  grid-auto-flow: dense;
 
   @media (width > 48.5rem) {
     grid-template-columns: repeat(2, 1fr);
@@ -139,46 +139,45 @@ h1 {
 }
 
 .Block {
+  display: grid;
+  gap: var(--spacing-200);
+  padding-block: var(--spacing-400);
+  padding-inline: var(--spacing-400);
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 24.74);
+
+  footer {
+    order: -1;
     display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
     gap: var(--spacing-200);
-    padding-block: var(--spacing-400);
-    padding-inline: var(--spacing-400);
-    border-radius: .5rem;
-    background-color: var(--white);
-    box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 24.74);
+  }
 
-    footer {
-      order: -1;
-        display: grid;
-        align-items: center;
-        grid-template-columns: auto 1fr;
-        gap: var(--spacing-200);
-    }
+  img {
+    inline-size: 1.75rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    outline: #a775f1 solid 2px;
+    object-position: center;
+    object-fit: cover;
+  }
 
-    img {
-        inline-size: 1.75rem;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        outline: #A775F1 solid 2px;
-        object-position: center;
-        object-fit: cover;
-    }
-
-    .Text2 {
-        display: grid;
-        gap: var(--spacing-50);
-    }
+  .Text2 {
+    display: grid;
+    gap: var(--spacing-50);
+  }
 }
 
 .Block--purple,
 .Block--grey,
 .Block--dark-blue {
-    .Text4 {
-        color: var(--purple-50);
-    }
+  color: var(--white);
 }
 .Block--purple {
-    color: var(--white);
+  position: relative;
+  color: var(--white);
   background-color: var(--purple-500);
 
   @media (width > 48.5rem) {
@@ -188,15 +187,49 @@ h1 {
   @media (width > 78rem) {
     grid-column: 1 / span 2;
   }
+
+  &::before {
+    @media (width > 48.5rem) {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline: calc(50% + 3rem) auto;
+      display: block;
+      inline-size: 6.5rem;
+      aspect-ratio: 1;
+      background: url("./images/bg-pattern-quotation.svg") no-repeat center /
+        cover;
+    }
+
+    @media (width > 78rem) {
+      inset-block-start: 0;
+      inset-inline: auto 3.75rem;
+    }
+  }
+
+  .Text3,
+  .Text4 {
+    color: var(--purple-50);
+  }
+
+  * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .Block--grey {
-    color: var(--white);
+  color: var(--white);
   background-color: var(--grey-500);
+
+  .Text3,
+  .Text4 {
+    color: var(--grey-100);
+  }
 }
 
 .Block--dark-blue {
-    color: var(--white);
+  color: var(--grey-200);
   background-color: var(--dark-blue);
 
   @media (width > 48.5rem) {
@@ -206,6 +239,11 @@ h1 {
   @media (width > 78rem) {
     grid-column: span 2;
   }
+
+  .Text3,
+  .Text4 {
+    color: var(--grey-100);
+  }
 }
 
 .Block--white {
@@ -214,7 +252,6 @@ h1 {
 }
 
 .Block--white-2 {
-
   @media (width > 48.5rem) {
     grid-column: 1 / -1;
   }
@@ -222,5 +259,13 @@ h1 {
   @media (width > 78rem) {
     grid-column: initial;
     grid-row: span 2;
+  }
+}
+
+.Block--white,
+.Block--white-2 {
+  .Text3,
+  .Text4 {
+    color: var(--grey-400);
   }
 }
