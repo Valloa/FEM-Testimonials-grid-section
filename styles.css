@@ -171,10 +171,10 @@ h1 {
 }
 
 .Block--purple,
-.Block--grey,
-.Block--dark-blue {
+.Block--grey {
   color: var(--white);
 }
+
 .Block--purple {
   position: relative;
   color: var(--white);
